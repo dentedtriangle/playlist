@@ -1,0 +1,12 @@
+development:
+  uri: mongodb://heroku_app2290094:neemno5mg59a4bvjs21c2512lt@ds029287.mongolab.com:29287/heroku_app2290094 #dev
+  #uri: mongodb://heroku_app2290096:bfbdnitd1e9psske49so10cr1a@ds029297.mongolab.com:29297/heroku_app2290096 #live
+  #host: localhost
+  #database: spreader_beta_development
+
+test:
+  host: localhost
+  database: spreader_beta_test
+
+production:
+  uri: <%= ENV['MONGOLAB_URI'] %>
