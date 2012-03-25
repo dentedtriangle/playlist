@@ -10,6 +10,7 @@ group :assets do
   gem 'html5-rails'
   gem 'jquery-rails'
   gem 'bootstrap-sass'
+  gem 'haml-rails'
 end
 
 # database / models
@@ -17,7 +18,8 @@ gem 'decent_exposure'
 gem 'mongoid'
 gem 'bson_ext', :require => 'mongo'
 
-gem 'devise'
+# dj
+gem 'delayed_job_mongoid'
 
 # deployment
 gem 'heroku'

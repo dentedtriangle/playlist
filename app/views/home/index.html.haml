@@ -1,0 +1,21 @@
+.lists
+  - if !lists.empty?
+    %ul{:class=>"dropdown lists"}
+      = lists.each do |list|
+        %li
+          %a{:data=>{:target=>list.id, :name=>list.name}}
+
+.songs
+  - if !songs.empty?
+    %ul{:class=>'music-list'}
+      = songs.each do |song|
+        %li
+          %a{:class=>"song", :data=>{:target=>song.id, :title=>song.title, :artist=>song.artist}}
+
+.controls
+  %a{:class=>'play', :data=>{:target=>"play"}} &#9654;
+  %a{:class=>'next', :data=>{:target=>"next"}} &#9654;|
+  %a{:class=>"previous", :data=>{:target=>"previous"}} |&#9664;
+  .volume
+    %a{:class=>"volume-up", :data=>{:target=>"volume-up"}} &#9650;
+    %a{:class=>"volume-down", :data=>{:target=>"volume-down"}} &#9660;
