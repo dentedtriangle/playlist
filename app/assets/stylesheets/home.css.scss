@@ -2,36 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 .lists {
-  
+  width: 200px;
+  border: 1px solid #000;
+  display: block;
 }
 
 .songs {
-  
 }
-
-.controls {
-  top: 0;
-  position: absolute; 
+.progress {
+  height: 15px;
 }
-.controls a {
-  opacity: 0.3;
-  -moz-opacity: 0.3;
-  filter:alpha(opacity=3)3
+.navbar{border-bottom:none !important;}
+.controls li a{
+  opacity: 0.5;
+  -moz-opacity: 0.5;
+  filter:alpha(opacity=5);
 }
-.controls a:hover {
-  opacity: 1.0;
-  -moz-opacity: 1.0;
-  filter:alpha(opacity=10);
-}
-.controls .volume {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-.controls .columne a {
-  padding: 0;
-  margin: 0;
+.controls li a:hover {
+  opacity: 1.0 !important;
+  -moz-opacity: 1.0 !important;
+  filter:alpha(opacity=10 !important1.0 !important);
 }

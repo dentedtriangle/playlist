@@ -13,27 +13,16 @@
 
 
   %body
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container-fluid
-          %a.brand{:href => "/"} Playlist
 
-    .container-fixed
-      .row-fluid
-        .notification
-          -if !flash[:alert].nil?
-            %div{:class => "alert alert-error" }
-              = flash[:alert]
-              %a{:class => "close", :href => "#", :data => { :dismiss => "alert" }} &times;
-          -if !flash[:notice].nil?
-            %div{:class => "alert alert-success"}
-              = flash[:notice]
-              %a{:class => "close", :href => "#", :data => { :dismiss => "alert" }} &times;
-        = yield
-
-      %hr
-
-      %footer
-        %p Powered by the community
+    .container-fluid
+      -if !flash[:alert].nil?
+        %div{:class => "alert alert-error" }
+          = flash[:alert]
+          %a{:class => "close", :href => "#", :data => { :dismiss => "alert" }} &times;
+      -if !flash[:notice].nil?
+        %div{:class => "alert alert-success"}
+          = flash[:notice]
+          %a{:class => "close", :href => "#", :data => { :dismiss => "alert" }} &times;
+      = yield
 
     = javascript_include_tag "application"

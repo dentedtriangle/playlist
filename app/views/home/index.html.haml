@@ -1,21 +1,54 @@
-.lists
-  - if !lists.empty?
-    %ul{:class=>"dropdown lists"}
-      = lists.each do |list|
+%div{:class=>"navbar navbar-fixed-top"}
+  .navbar-inner
+    .container-fluid
+      %a.brand{:href => "/"} Playlist
+      %ul{:class=>"nav controls"}
         %li
-          %a{:data=>{:target=>list.id, :name=>list.name}}
+          %a{:data=>{:target=>"play"}}
+            = image_tag "play.png", :class=>"play"
+        %li.divider-vertical
+        %li
+          %a{:data=>{:target=>"previous"}}
+            = image_tag "step_backward.png"
+        %li.divider-vertical
+        %li
+          %a{:data=>{:target=>"next"}}
+            = image_tag "step_forward.png"
+        %li.divider-vertical
+        %li
+          %a{:data=>{:target=>"volumeDec"}}
+            = image_tag "volume_down.png"
+        %li.divider-vertical
+        %li
+          %a{:data=>{:target=>"volumeInc"}}
+            = image_tag "volume_up.png"
+        %li.divider-vertical
+        %li
+          %a{:class=>"title"}
+      %ul(class="nav pull-right")
+        - if lists.empty?
+          %li.dropdown
+            %a{:href=>"#", :rel=>"tooltip", :class=>"dropdown-toggle"}
+              %i(class="icon-list")
+              %b.caret
+            
+            %ul.dropdown-menu
+              = lists.each do |list|
+                %li
+                  %a{:data=>{:target=>list.id, :name=>list.name}}
 
-.songs
-  - if !songs.empty?
-    %ul{:class=>'music-list'}
+  .progress
+    %div{:class=>"bar", :style=>"width: 20%"} 
+/- if !songs.empty?
+%div{:class=>"container-fluid"}
+  %table{:class=>"table table-condensed songs"}
+    %thead
+      %th Title
+      %th Artist
+    %tbody
       = songs.each do |song|
-        %li
-          %a{:class=>"song", :data=>{:target=>song.id, :title=>song.title, :artist=>song.artist}}
-
-.controls
-  %a{:class=>'play', :data=>{:target=>"play"}} &#9654;
-  %a{:class=>'next', :data=>{:target=>"next"}} &#9654;|
-  %a{:class=>"previous", :data=>{:target=>"previous"}} |&#9664;
-  .volume
-    %a{:class=>"volume-up", :data=>{:target=>"volume-up"}} &#9650;
-    %a{:class=>"volume-down", :data=>{:target=>"volume-down"}} &#9660;
+        %tr{:class=>"song", :data=>{:target=>song.id, :title=>song.title, :artist=>song.artist}}
+          %td
+            = song.title
+          %td
+            = song.artist

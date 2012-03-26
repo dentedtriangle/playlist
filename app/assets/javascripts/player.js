@@ -43,20 +43,12 @@ var player = new (function(){
 	this.volumeInc = function(){
 		if(this.volume +1 <= 3){
 			this.volume++;
-			var me = this;
-			$("#volume").fadeOut(200, function(){
-				$(this).css("backgroundImage", "url('css/images/vol" +  me.volume + ".jpg')");
-			}).fadeIn(200);
 		}
 	}
 	//Decrease the volume in one point
 	this.volumeDec = function(){
 		if(this.volume -1 > 0){
 			this.volume--;
-			var me = this;
-			$("#volume").fadeOut(200, function(){
-				$(this).css("backgroundImage", "url('css/images/vol" +  me.volume + ".jpg')");
-			}).fadeIn(200);
 		}
 	}
 	//Toggle play & pause
