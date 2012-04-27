@@ -4,51 +4,51 @@
       %a.brand{:href => "/"} Playlist
       %ul{:class=>"nav controls"}
         %li
-          %a{:data=>{:target=>"play"}}
-            = image_tag "play.png", :class=>"play"
-        %li.divider-vertical
-        %li
-          %a{:data=>{:target=>"previous"}}
-            = image_tag "step_backward.png"
-        %li.divider-vertical
-        %li
-          %a{:data=>{:target=>"next"}}
-            = image_tag "step_forward.png"
-        %li.divider-vertical
-        %li
-          %a{:data=>{:target=>"volumeDec"}}
-            = image_tag "volume_down.png"
-        %li.divider-vertical
-        %li
-          %a{:data=>{:target=>"volumeInc"}}
-            = image_tag "volume_up.png"
         %li.divider-vertical
         %li
           %a{:class=>"title"}
-      %ul(class="nav pull-right")
-        - if lists.empty?
-          %li.dropdown
-            %a{:href=>"#", :rel=>"tooltip", :class=>"dropdown-toggle"}
-              %i(class="icon-list")
-              %b.caret
-            
-            %ul.dropdown-menu
-              = lists.each do |list|
-                %li
-                  %a{:data=>{:target=>list.id, :name=>list.name}}
+        %li.divider-vertical
 
-  .progress
-    %div{:class=>"bar", :style=>"width: 20%"} 
-/- if !songs.empty?
-%div{:class=>"container-fluid"}
+      %ul{:class=>"pull-right nav"}
+        %li{:class=>"dropdown"}
+          %a{:class => "dropdown-toggle"}
+            %i(class="icon-list")
+            %b.caret
+          %ul.dropdown-menu
+            - @lists.each do |list|
+              %li
+                %a{:data=>{:target=>"list_#{list[:id]}"}} 
+                  =list[:name]
+            %li.divider
+            %li
+              = link_to "Sign Out", "/sign_out"
+.player
+  %audio{:id=>"player",:autoplay=>"true",:controls=>"controls"}
+    %source{:type=>"audio/ogg",:src=>"assets/audiotest.ogg"}
+    %p Browser not supported so get a new one hippy!
+  %div{:id=>"controls"}
+    %button{:id=>"play",:title=>"Play",:accesskey=>"P"}
+    %button{:id=>"previous",:title=>"Previous"}
+    %button{:id=>"next",:title=>"Next"}
+    / add slider
+    %span{:id=>"timer"}
+      %span{:id=>"currentTime"}
+      %span{:id=>"duration"}
+    %button{:id=>"volumeDown",:title=>"-"}
+    %button{:id=>"volumeUp",:title=>"+"}
+
+
   %table{:class=>"table table-condensed songs"}
     %thead
       %th Title
       %th Artist
+      %th Genre
     %tbody
-      = songs.each do |song|
-        %tr{:class=>"song", :data=>{:target=>song.id, :title=>song.title, :artist=>song.artist}}
+      - @songs.each do |song|
+        %tr{:class=>"song", :data=>{:target=>song[:id]}}
           %td
-            = song.title
+            = song[:title]
           %td
-            = song.artist
+            = song[:artist]
+          %td
+            = song[:genre]

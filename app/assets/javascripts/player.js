@@ -1,27 +1,21 @@
-﻿/***************************/
-//@Author: Adrian "yEnS" Mato Gondelle & Ivan Guardado Castro
-//@website: www.yensdesign.com
-//@email: yensamg@gmail.com
-//@license: Feel free to use it, but keep this credits please!					
-/***************************/
+﻿var player = new (function(){
 
-//This is the class that interact with the interface
-var player = new (function(){
-	//Simulate a playlist
+	// todo: load playlist from server or table
 	this.playList = ["Cold Play - Fix you", "Madonna - Give it 2 me", "Mirror's Edge Theme Song - Still Alive", "Rihanna - Unfaithful with Lyrics"];
-	//The song position
+
 	this.position = -1;
-	//The current volume
 	this.volume = 3;
+
 	//Status: 0:pause, 1:play
 	this.status = 1;
-	//Jump to the next or first song if the it is in the last position
-	this.nextSong = function(){
+
+	this.nextSong = function() {
+		// todo change 
 		if(this.position+1 == this.playList.length)
 			this.position = 0;
 		else
 			this.position++;
-		//So, the reference to this class is not lost
+		
 		var me = this;
 		$(".title").fadeOut(200, function(){
 			$(this).text(me.playList[me.position]);
@@ -55,13 +49,10 @@ var player = new (function(){
 	this.playPause = function(){
 		this.status = !this.status;
 		var me = this;
-		$("#play").fadeOut(200, function(){
-			if(me.status == 0)
-				$(this).css("backgroundImage", "url('css/images/pause.jpg')");
-			else
-				$(this).css("backgroundImage", "url('css/images/play.jpg')");
-		}).fadeIn(200);
+		$this = $('#play');
+		if(me.status == 0)
+			$this.children('img').attr('src', 'assets/pause.png');
+		else
+			$this.children('img').attr('src', 'assets/play.png');
 	}
 });
-//Starts playing :P
-player.nextSong();

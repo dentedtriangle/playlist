@@ -1,26 +1,30 @@
-$(document).ready(function(){
-  $('.play').click(function(){
-    player.playPause();
+$(document).ready(function() {
+  var player = $('#player');
+
+  $('#play').click(function() {
+    player.play();
     return false;
   });
 
-  $('.next').click(function(){
-    player.nextSong();
+  $('#next').click(function(){
+    player.next();
     return false;
   });
 
-  $('.prev').click(function(){
-    player.prevSong();
+  $('#previous').click(function(){
+    player.previous();
     return false;
   });
 
-  $('.volUp').click(function(){
-    player.volumeInc();
+  $('#volumeUp').click(function(){
+    player.volume += 0.1;
     return false;
   });
 
-  $('.volDown').click(function(){
-    player.volumeDec();
+  $('#volumeDown').click(function(){
+    player.volume -= 0.1;
     return false;
   });
+
+  $('.dropdown-toggle').dropdown();
 });

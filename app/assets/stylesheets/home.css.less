@@ -1,0 +1,51 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.navbar{border-bottom:none !important;}
+
+#controls {
+  position: relative;
+  button {
+    border: 1px solid #333;
+    //position: absolute;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    color: transparent;
+    padding: 2px;
+    width: 34px;
+    height: 30px;
+    opacity: 0.5;
+    -moz-opacity: 0.5;
+    -webkit-opacity: 0.5;
+    &:hover {
+      border: 2px solid #3a3;
+      opacity: 1.0;
+      -moz-opacity: 1.0;
+      -webkit-opacity: 1.0;
+    }
+  }
+  #play {
+    background-image: url('play.png');
+  }
+  #next {
+    background-image: url('next.png');
+  }
+  #previous {
+    background-image: url('previous.png');
+  }
+  #volumeUp {
+    background-image: url('volume_up.png');
+  }
+  #volumeDown {
+    background-image: url('volume_down.png');
+  }
+}
+
+table.songs {
+  tbody tr:hover {
+    color: #4183C4;
+    cursor: pointer;
+  }
+}

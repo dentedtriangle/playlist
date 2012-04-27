@@ -1,11 +1,4 @@
-﻿/***************************/
-//@Author: Adrian "yEnS" Mato Gondelle & Ivan Guardado Castro
-//@website: www.yensdesign.com
-//@email: yensamg@gmail.com
-//@license: Feel free to use it, but keep this credits please!					
-/***************************/
-
-var captured = false;
+﻿var captured = false;
 var originalPoint = {x:0,y:0};
 var newPoint = [];
 //Different mouse gesture types
